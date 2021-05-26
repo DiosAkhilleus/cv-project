@@ -16,7 +16,6 @@ function App() {
           <General />
       </div>
       <div className='prod-container'>
-
       </div>
     </div>
   );
