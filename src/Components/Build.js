@@ -1,9 +1,10 @@
 import React from 'react'
 
-const Build = (props) => {
+const Build = ({ name, contact }) => {
     return (
         <div>
-            
+            <div>{name}</div>
+            <div>{contact}</div>
         </div>
     )
 }

@@ -1,9 +1,9 @@
 import React from 'react'
 
-const Header = () => {
+const Header = ({ title }) => {
     return (
         <div className='header'>
-            Resume Builder
+            {title}
         </div>
     )
 }

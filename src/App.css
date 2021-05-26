@@ -79,7 +79,7 @@
 
 }
 
-.build-container {
+.work-container {
   display:block;
   border: 2px solid darkslategray;
   width: 500px;
@@ -91,7 +91,7 @@
   overflow:scroll;
 }
 
-.prod-container {
+.build-container {
   display:block;
   border: 2px solid darkslategray;
   width: 500px;
