@@ -3,10 +3,12 @@
 .general {
   display:block;
   background-color: none;
-  max-width: 40vw;
+  width: 95%;
   height: auto;
+  min-height:40px;
   margin: 0 auto;
   margin-top: 20px;
+  margin-bottom:20px;
   border: 2px solid darkslategray;
 }
 
@@ -30,23 +32,26 @@
   border: 2px solid darkslategray;
 }
 
-.edit-button {
+.btn {
   display:block;
-  width: 100px;
+  width: auto;
   height: 30px;
   border-radius:3px;
   border: 2px solid black;
-  background-color: rgb(71, 184, 184);
+  background-color:sandybrown;
   margin: 0 auto;
   margin-top: 10px;
+  margin-bottom: 10px;
+  font-size:15px;
+  font-family:'Times New Roman', Times, serif;
 }
 
-.edit-button:hover {
+.btn:hover {
   cursor:pointer;
-  background-color:teal;
+  background-color:rgb(226, 178, 137);
 }
 
-.general-input {
+.input {
   display:block;
   width: 95%;
   height: 30px;
@@ -62,4 +67,29 @@
 
 #first-name {
   user-select: none;
+}
+
+.container {
+  display:block;
+  border: 2px solid darkslategray;
+  width: 500px;
+  height:auto;
+  min-height:90vh;
+  margin: 0 auto;
+  margin-top: 25px;
+}
+
+.header {
+  display:block;
+  background-color:darkslategray;
+  color:rgb(206, 203, 173);
+  width: 100%;
+  text-align:center;
+  height: 40px;
+  line-height:40px;
+  font-size:20px;
+}
+
+.title {
+  text-align:center;
 }
