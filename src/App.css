@@ -59,7 +59,8 @@
   margin: 0 auto;
   margin-top:10px;
   padding-left:5px;
-  border: 1px solid black;
+  border: 2px solid grey;
+  border-radius:4px;
   font-size:20px;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
@@ -69,14 +70,38 @@
   user-select: none;
 }
 
-.container {
+.page-container {
+  display:flex;
+  border: 1px solid blue;
+  width: 95vw;
+  height: 95vh;
+  margin: 0 auto;
+
+}
+
+.build-container {
   display:block;
   border: 2px solid darkslategray;
   width: 500px;
-  height:auto;
+  height:90vh;
   min-height:90vh;
-  margin: 0 auto;
+  margin-left: 50px;
   margin-top: 25px;
+  margin-bottom:40px;
+  overflow:scroll;
+}
+
+.prod-container {
+  display:block;
+  border: 2px solid darkslategray;
+  width: 500px;
+  height:90vh;
+  min-height:90vh;
+  margin: 20px auto;
+  margin-top: 25px;
+  margin-bottom:25px;
+  margin-right:50px;
+  overflow:scroll;
 }
 
 .header {

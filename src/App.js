@@ -10,9 +10,14 @@ function App() {
 
 
   return (
-    <div className='container'>
-        <Header />
-        <General />
+    <div className='page-container'>
+      <div className='build-container'>
+          <Header />
+          <General />
+      </div>
+      <div className='prod-container'>
+
+      </div>
     </div>
   );
 }
