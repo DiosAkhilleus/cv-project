@@ -1,4 +1,8 @@
-
+#root {
+  width: 98vw;
+  height: 85vh;
+  overflow:visible;
+}
 
 .general {
   display:block;
@@ -72,19 +76,20 @@
 
 .page-container {
   display:flex;
-  border: 1px solid blue;
   width: 95vw;
-  height: 95vh;
+  height: auto;
+  max-height:92vh;
   margin: 0 auto;
-
+  margin-top:50px;
+  overflow:hidden;
 }
 
 .work-container {
   display:block;
   border: 2px solid darkslategray;
   width: 40vw;
-  height:90vh;
-  min-height:90vh;
+  height:85vh;
+  min-height:50vh;
   margin-left: 50px;
   margin-top: 25px;
   margin-bottom:40px;
@@ -95,8 +100,8 @@
   display:block;
   border: 2px solid darkslategray;
   width: 40vw;
-  height:90vh;
-  min-height:90vh;
+  height:85vh;
+  min-height:50vh;
   margin: 20px auto;
   margin-top: 25px;
   margin-bottom:25px;
@@ -113,6 +118,12 @@
   height: 40px;
   line-height:40px;
   font-size:20px;
+}
+#top-header {
+  position: absolute;
+  top:0px;
+  left:0px;
+  height:60px;
 }
 
 .title {
