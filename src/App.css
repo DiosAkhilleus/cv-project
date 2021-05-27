@@ -82,7 +82,7 @@
 .work-container {
   display:block;
   border: 2px solid darkslategray;
-  width: 500px;
+  width: 40vw;
   height:90vh;
   min-height:90vh;
   margin-left: 50px;
@@ -94,7 +94,7 @@
 .build-container {
   display:block;
   border: 2px solid darkslategray;
-  width: 500px;
+  width: 40vw;
   height:90vh;
   min-height:90vh;
   margin: 20px auto;
@@ -120,5 +120,5 @@
 }
 
 .name {
-  
+  color:blue;
 }

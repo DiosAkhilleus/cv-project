@@ -2,6 +2,7 @@ import './App.css';
 import Header from './Components/Header'
 import Build from './Components/Build'
 import { useState } from 'react'
+import { useEffect } from 'react';
 
 function App() {
     const [first, setFirst] = useState('');
@@ -13,27 +14,29 @@ function App() {
     const [editName, setEditName] = useState(false);
     const [editCont, setEditCont] = useState(false);
 
+    useEffect(() => {
+      setEditName(false);
+      setEditCont(false);
+    }, []);
+
     const handleSubmit = (e, type) => {
-        if (type === 'name') {(first !== '' && last !== '') ? (setName(`${first} ${last}`)) : console.log('name incomplete')};
-        if (type === 'cont') {(email !== '' && phone !== '') ? (setContact(`${email} | ${phone}`)) : console.log('contact incomplete')};
-        type === 'name' ? setEditName(true) : 
-        type === 'cont' ? setEditCont(true) :
+        if (type === 'name') {if (first !== '' && last !== '')  {(setName(`${first} ${last}`) && setEditName(true))}};
+        if (type === 'cont') {if (email !== '' && phone !== '') {(setContact(`${email} | ${phone}`) && setEditCont(true))}};
         e.preventDefault();
     }
 
     const handleChange = (e, info) => {
 
-        if(info === 'first') {setFirst(e.target.value)};
-        if(info === 'last')  {setLast(e.target.value)};
-        if(info === 'phone') {setPhone(e.target.value)};
-        if(info === 'email') {setEmail(e.target.value)};
-
-        console.log(e.target.value);
+        if (info === 'first') {setFirst(e.target.value)};
+        if (info === 'last')  {setLast(e.target.value)};
+        if (info === 'phone') {setPhone(e.target.value)};
+        if (info === 'email') {setEmail(e.target.value)};
         
     }
 
     const handleEdit = (e, info) => {
-      console.log(info);
+      if (info === 'name') {setEditName(false)}
+      if (info === 'cont') {setEditCont(false)};
     }
 
     const resetAll = (e) => {
@@ -43,6 +46,8 @@ function App() {
         setEmail('');
         setName('');
         setContact('');
+        setEditName(false);
+        setEditCont(false);
     }
 
 
