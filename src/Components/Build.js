@@ -1,10 +1,11 @@
 import React from 'react'
+import '../App.css'
 
 const Build = ({ name, contact }) => {
     return (
         <div>
-            <div>{name}</div>
-            <div>{contact}</div>
+            <h3 className='name'>{name}</h3>
+            <div className='contact'>{contact}</div>
         </div>
     )
 }
