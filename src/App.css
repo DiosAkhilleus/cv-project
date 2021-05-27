@@ -50,6 +50,10 @@
   font-family:'Times New Roman', Times, serif;
 }
 
+#reset {
+  
+}
+
 .btn:hover {
   cursor:pointer;
   background-color:rgb(226, 178, 137);
