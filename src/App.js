@@ -5,6 +5,7 @@ import { useState } from 'react'
 import { useEffect } from 'react';
 import Experience from './Components/Experience';
 import General from './Components/General';
+import Education from './Components/Education';
 
 function App() {
     const [first, setFirst] = useState('');
@@ -19,11 +20,28 @@ function App() {
     const [editCont, setEditCont] = useState(false);
 
     const [expCount, setExpCount] = useState(1);
+    const [eduCount, setEduCount] = useState(1);
+    const [expArr, setExpArr] = useState([])
+    const [eduArr, setEduArr] = useState([]);
 
     useEffect(() => {
       setEditName(false);
       setEditCont(false);
     }, []);
+
+    // useEffect(() => {
+    //   let newArr = [...Array(expCount)].map((el, index) => (
+    //               <Experience 
+    //                 handleChange={handleChange} 
+    //                 handleAdd={handleAdd} 
+    //                 handleDel={handleDel} 
+    //                 expCount={expCount}
+    //                 index={index}
+    //               />))
+
+    //   setExpArr(newArr);
+    // }, []);
+
 
     const handleSubmit = (e, type) => {
         if (type === 'name' && first !== '' && last !== '') {
@@ -53,12 +71,16 @@ function App() {
     }
 
     const handleAdd = (e, info) => {
-      setExpCount(expCount + 1);
+      if (info === 'exp') {
+        setExpCount(expCount + 1)
+      }
+      if (info === 'edu') {setEduCount(eduCount + 1)};
+      console.log(expCount, eduCount);
     }
 
-    const handleDel = (e, info) => {
-      setExpCount(expCount - 1);
-      
+    const handleDel = (e, info, index) => {
+      console.log(info, index);
+      console.log(expArr);
     }
 
     // const expEq = () => {
@@ -78,7 +100,10 @@ function App() {
         setContact('');
         setEditName(false);
         setEditCont(false);
+        
     }
+
+
 
 
   return (
@@ -98,11 +123,25 @@ function App() {
                 editName={editName}
                 editCont={editCont}
               />
-              
-              {Array(expCount).fill(<Experience handleChange={handleChange} handleAdd={handleAdd} handleDel={handleDel} expCount={expCount}/>)}
+              {[...Array(expCount)].map((el, index) => (
+                  <Experience 
+                    handleChange={handleChange} 
+                    handleAdd={handleAdd} 
+                    handleDel={handleDel} 
+                    expCount={expCount}
+                    index={index}
+                  />))}
               <button onClick={(e) => handleAdd(e, 'exp')} className='btn'>+ Add Experience</button>
-
-
+              <div className='br'></div>
+              {Array(eduCount).fill (
+                <Education 
+                  handleChange={handleChange}
+                  handleAdd={handleAdd} 
+                  eduCount={eduCount} 
+                  handleDel={handleDel} 
+                />
+              )}
+              <button onClick={(e) => handleAdd(e, 'edu')} className='btn'>+ Add Education</button>
               <button onClick={(e) => resetAll(e)} className='btn' id='reset'>Reset All Fields</button>
         </div>
         <div className='build-container'>
