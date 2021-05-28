@@ -1,6 +1,5 @@
 import React from 'react'
 import '../App.css'
-import Header from './Header'
 
 const General = ({ handleChange, handleSubmit, handleEdit, editName, editCont, first, last, phone, email  }) => {
 
