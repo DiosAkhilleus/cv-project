@@ -53,8 +53,21 @@ function App() {
     }
 
     const handleAdd = (e, info) => {
-      console.log(info);
+      setExpCount(expCount + 1);
     }
+
+    const handleDel = (e, info) => {
+      setExpCount(expCount - 1);
+      
+    }
+
+    // const expEq = () => {
+    //   let arr = [];
+    //   for (let i = 1; i < expCount; i++) {
+    //     arr.push(i);
+    //   }
+    //   return arr
+    // }
 
     const resetAll = (e) => {
         setFirst('');
@@ -85,7 +98,8 @@ function App() {
                 editName={editName}
                 editCont={editCont}
               />
-              <Experience handleChange={handleChange} />
+              
+              {Array(expCount).fill(<Experience handleChange={handleChange} handleAdd={handleAdd} handleDel={handleDel} expCount={expCount}/>)}
               <button onClick={(e) => handleAdd(e, 'exp')} className='btn'>+ Add Experience</button>
 
 
