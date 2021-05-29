@@ -21,13 +21,17 @@ function App() {
 
     const [expCount, setExpCount] = useState(1);
     const [eduCount, setEduCount] = useState(1);
-    const [expArr, setExpArr] = useState([])
+    const [expArr, setExpArr] = useState([1])
     const [eduArr, setEduArr] = useState([]);
 
     useEffect(() => {
       setEditName(false);
       setEditCont(false);
     }, []);
+
+    useEffect(() => {
+        displayExp()
+    }, [expArr]);
 
     // useEffect(() => {
     //   let newArr = [...Array(expCount)].map((el, index) => (
@@ -41,7 +45,9 @@ function App() {
 
     //   setExpArr(newArr);
     // }, []);
-
+    const displayExp = () => {
+      //console.log('exp');
+    }
 
     const handleSubmit = (e, type) => {
         if (type === 'name' && first !== '' && last !== '') {
@@ -61,8 +67,7 @@ function App() {
         if (info === 'last')  {setLast(e.target.value)};
         if (info === 'phone') {setPhone(e.target.value)};
         if (info === 'email') {setEmail(e.target.value)};
-        console.log(e.target.value);
-        
+        //console.log(e.target.value);
     }
 
     const handleEdit = (e, info) => {
@@ -72,15 +77,21 @@ function App() {
 
     const handleAdd = (e, info) => {
       if (info === 'exp') {
-        setExpCount(expCount + 1)
+        setExpCount(expCount + 1);
+        setExpArr(expArr.concat([expCount + 1]));
+        console.log(expArr.concat([expCount + 1]))
       }
       if (info === 'edu') {setEduCount(eduCount + 1)};
-      console.log(expCount, eduCount);
+      //console.log(expCount, eduCount);
     }
 
     const handleDel = (e, info, index) => {
-      console.log(info, index);
-      console.log(expArr);
+      if (info === 'exp') {
+        console.log(info, index);
+        setExpCount(expCount - 1);
+        setExpArr((expArr.slice(0, index-1).concat(expArr.slice(index))));
+      }
+      //setExpArr(expArr.splice(index, 0));
     }
 
     // const expEq = () => {
@@ -123,7 +134,7 @@ function App() {
                 editName={editName}
                 editCont={editCont}
               />
-              {[...Array(expCount)].map((el, index) => (
+              {expArr.map((el, index) => (
                   <Experience 
                     handleChange={handleChange} 
                     handleAdd={handleAdd} 
@@ -133,6 +144,9 @@ function App() {
                   />))}
               <button onClick={(e) => handleAdd(e, 'exp')} className='btn'>+ Add Experience</button>
               <div className='br'></div>
+              <div style={{width:'100%', color:'black'}}>{expArr}</div>
+
+
               {Array(eduCount).fill (
                 <Education 
                   handleChange={handleChange}

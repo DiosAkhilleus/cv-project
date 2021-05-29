@@ -1,7 +1,7 @@
 import React from 'react'
 
 function Experience({ handleChange, handleAdd, handleDel, expCount, index }) {
-    console.log(index);
+    // console.log(index);
     return (
         <div className='experience' style={expCount === 1 ? {paddingBottom : '20px', borderBottom:'none'} : {paddingBottom : '0px', borderBottom: '2px solid darkslategray'}}>
           <h3 className='title'>Work Experience {index + 1}</h3>
