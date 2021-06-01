@@ -21,6 +21,7 @@ function App() {
 
     const [expCount, setExpCount] = useState(1);
     const [eduCount, setEduCount] = useState(1);
+    const [editExp, setEditExp] = useState(false);
     const [expArr, setExpArr] = useState([1])
     const [eduArr, setEduArr] = useState([]);
 
@@ -49,7 +50,7 @@ function App() {
       //console.log('exp');
     }
 
-    const handleSubmit = (e, type) => {
+    const handleSubmit = (e, type, index) => {
         if (type === 'name' && first !== '' && last !== '') {
           setName(`${first} ${last}`);
           setEditName(true);
@@ -58,6 +59,9 @@ function App() {
           setContact(`${email} | ${phone}`);
           setEditCont(true)
         };
+        if (type === 'exp') {
+          setEditExp(true);
+        }
         e.preventDefault();
     }
 
@@ -73,6 +77,7 @@ function App() {
     const handleEdit = (e, info) => {
       if (info === 'name') {setEditName(false)}
       if (info === 'cont') {setEditCont(false)};
+      if (info === 'exp')  {setEditExp(false)};
     }
 
     const handleAdd = (e, info) => {
@@ -139,10 +144,14 @@ function App() {
                     handleChange={handleChange} 
                     handleAdd={handleAdd} 
                     handleDel={handleDel} 
+                    handleSubmit={handleSubmit}
+                    handleEdit={handleEdit}
                     expCount={expCount}
+                    editExp={editExp}
                     index={index}
                   />))}
-              <button onClick={(e) => handleAdd(e, 'exp')} className='btn'>+ Add Experience</button>
+              
+              {editExp===true ? <button onClick={(e) => handleAdd(e, 'exp')} className='btn'>+ Add Experience</button> : ''}
               <div className='br'></div>
               <div style={{width:'100%', color:'black'}}>{expArr}</div>
 
